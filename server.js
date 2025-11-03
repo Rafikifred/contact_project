@@ -1,19 +1,21 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const contactRoutes = require('./routes/contacts');
+const contactsRouter = require('./routes/contacts'); // require
 
 const app = express();
 app.use(express.json());
 
-// Routes
-app.use('/contacts', contactRoutes);
+// Root route (optional)
+app.get('/', (req, res) => res.send('Contacts API running!'));
 
+// Use contacts routes
+app.use('/contacts', contactsRouter);
+
+// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error(err));
+  .catch(err => console.log('MongoDB connection error:', err));
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server running on port ${process.env.PORT || 3000}`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
