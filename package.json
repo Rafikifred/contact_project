@@ -1,5 +1,5 @@
 {
-  "name": "contact-project",
+  "name": "c",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -10,13 +10,23 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
-    "mongoose": "^8.19.2"
+    "mongoose": "^8.19.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafikifred/contact_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rafikifred/contact_project/issues"
+  },
+  "homepage": "https://github.com/Rafikifred/contact_project#readme",
+  "description": ""
 }

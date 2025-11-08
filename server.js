@@ -2,15 +2,22 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const contactsRouter = require('./routes/contacts'); // require
+const setupSwagger = require('./swagger'); // import swagger setup
+
 
 const app = express();
 app.use(express.json());
+
+
 
 // Root route (optional)
 app.get('/', (req, res) => res.send('Contacts API running!'));
 
 // Use contacts routes
 app.use('/contacts', contactsRouter);
+// Setup Swagger documentation
+setupSwagger(app);
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
