@@ -1,3 +1,4 @@
+// swagger.js
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -7,23 +8,26 @@ const options = {
     info: {
       title: 'Contacts API',
       version: '1.0.0',
-      description: 'API documentation for the Contacts Project (W02 Assignment)',
+      description: 'API documentation for the Contacts Project',
     },
     servers: [
-    
       {
-        url: 'http://contact-project-1.onrender.com',  // Replace with your Render URL
-        description: 'Production server',
+        url: process.env.BASE_URL || 'http://localhost:3000',
+        description: 'API server',
       },
     ],
   },
-  apis: ['./routes/*.js'], // Look for Swagger comments inside all route files
+  apis: ['./routes/*.js'],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
 
 function setupSwagger(app) {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.get('/swagger.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerSpec);
+  });
   console.log('Swagger docs available at /api-docs');
 }
 
