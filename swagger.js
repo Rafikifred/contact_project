@@ -10,12 +10,13 @@ const options = {
       version: '1.0.0',
       description: 'API documentation for the Contacts Project',
     },
-    servers: [
-      {
-        url: process.env.BASE_URL || 'http://localhost:3000',
-        description: 'API server',
-      },
-    ],
+   servers: [
+  {
+    url: process.env.BASE_URL,
+    description: 'Production server',
+  },
+],
+
   },
   apis: ['./routes/*.js'],
 };
