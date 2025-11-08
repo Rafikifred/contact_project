@@ -7,6 +7,9 @@ const setupSwagger = require('./swagger'); // import swagger setup
 
 const app = express();
 app.use(express.json());
+const cors = require('cors');
+app.use(cors()); // Allow all origins
+
 
 
 

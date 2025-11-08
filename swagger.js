@@ -10,12 +10,9 @@ const options = {
       description: 'API documentation for the Contacts Project (W02 Assignment)',
     },
     servers: [
+    
       {
-        url: 'http://localhost:3000',  // Local development
-        description: 'Local server',
-      },
-      {
-        url: 'https://contact-project-1.onrender.com',  // Replace with your Render URL
+        url: 'http://contact-project-1.onrender.com',  // Replace with your Render URL
         description: 'Production server',
       },
     ],
